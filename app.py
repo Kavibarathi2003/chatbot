@@ -6,8 +6,8 @@ import pdfplumber
 # ─────────────────────────────────────────────
 # 🔐 API KEY (Use secrets in production)
 # ─────────────────────────────────────────────
-client = Groq(api_key="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")
-
+import os
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 def llm(prompt):
     response = client.chat.completions.create(
         model="llama-3.1-8b-instant",
